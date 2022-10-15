@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/stylesheets/test.css" />
+
+
+<div class="container mt-5">
+
+
+  <div class="row">
+    {{#if categoryItems}}
+    {{#each categoryItems}}
+    <div class="col-lg-3 col-md-6 col-sm-12">
+          <div class="cardContainer">
+            <a href="/viewProduct/{{this._id}}" class="text-decoration-none text-dark">
+            <div class="topSections">
+              <div class="imgContainer">
+                <img src="/images/productimg/{{this.image.[0]}}" alt="">
+      
+              </div>
+
+            </div>
+            
+            </a>
+            
+            <div class="bottumSection">
+              <div class="seconraper">
+                <div class="mHead">
+                  <h6> {{this.this.productName}}</h6>
+
+                </div>
+
+                
+                <div class="diver">
+
+                  <p><span>{{this.category}} &nbsp;</span> <span>
+                      <span class="badge text-bg-success">
+                        <span class="staring">5</span>
+                        ★
+                      </span></span></p>
+
+                </div>
+
+
+
+                <p class="amount">
+                  <span>₹ {{this.price}} &nbsp;</span>
+                  <span> <del> &nbsp;₹ {{this.price}} </del> &nbsp; </span>
+                  <span> 10% off</span></p>
+
+                <div class="cartFav">
+                  <div>
+                    <button onclick="addToCart('{{this._id}}')" class="buttonCart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button> &nbsp;
+                    <button onclick="addToWishlist('{{this._id}}','{{../user._id}}')" class="buttonfav"><i class="fa fa-heart" aria-hidden="true"></i></button>
+                  </div>
+                </div>
+
+
+
+
+
+
+
+              </div>
+
+
+
+            </div>
+
+
+
+
+          </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <p>No Items Found</p>
+        {{/if}}
+  </div>
+
+</div>

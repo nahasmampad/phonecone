@@ -1,0 +1,14 @@
+<div  class="login-page w-100 h-100" style="background:linear-gradient(to right, #FFB246, #FD780D);">
+  <div class="form">
+    
+    <form class="login-form" action="/admin/adminLogin" method="POST">
+    {{#if loginErr}}
+    <p class="text-danger">Email or Password Incorrect</p>
+    {{/if}}
+      <input type="text" placeholder="email" name="email" type="email"  require/>
+      <input type="password" placeholder="password" name="password" type="password" required/>
+      <button>Login</button>
+      
+    </form>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.viewButton{
+    border: none;
+    background: white;
+    border: 1px solid black;
+    padding: 6px;
+    border-radius: 30px;
+    padding-left: 6;
+    padding-right: 6;
+}
+
+.viewButton:hover{
+    background: #696cff;
+    color: white;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

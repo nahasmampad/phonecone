@@ -1,0 +1,296 @@
+<div class="container mt-5 bg-light p-5">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6 col-sm-12">
+
+      <form action="/admin/editProduct/{{product._id}}" method="POST">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Name of Product</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            name="productName"
+            value="{{product.productName}}"
+          />
+
+        </div>
+
+        <div class="mb-3"><select
+            class="form-select"
+            aria-label="Default select example"
+            name="catogory"
+            value=""
+          >
+            <option selected>{{product.catogory}}</option>
+            <option value="Mobile">Mobile</option>
+            <option value="Headset">Headset</option>
+            <option value="Charger">Charger</option>
+            <option value="Powerbank">Power bank</option>
+          </select></div>
+
+
+          <div class="mb-3">
+          <label for="Inputbarand" class="form-label">Brand</label>
+          <input
+            type="text"
+            class="form-control"
+            id="Inputbarand"
+            name="brand"
+            value="{{product.brand}}"
+          />
+        </div>
+ <div class="mb-3">
+          <label for="InputPrice" class="form-label">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="InputPrice"
+            name="price"
+            value="{{product.price}}"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Discription</label>
+          <input
+            type="text"
+            class="form-control"
+            id="exampleInputEmail1"
+            name="discription"
+            value="{{product.discription}}"
+            
+          />
+
+        </div>
+
+        <div class="mb-3">
+          <label for="Inputquantity" class="form-label">Available Quantity</label>
+          <input
+            type="number"
+            class="form-control"
+            id="Inputquantity"
+            name="quantity"
+            value="{{product.quantity}}"
+            
+          />
+
+        </div>
+
+
+        <div class="mb-3">
+            <img src="/images/productimg/{{product.image.[0]}}" class="img-thumbnail mb-3" style="width:100px ; height:100px" alt="not">
+            <img src="/images/productimg/{{product.image.[1]}}" class="img-thumbnail mb-3" style="width:100px ; height:100px" alt="not">
+          <label for="InputIamge" class="form-label">Image</label>
+          <input
+            type="file"
+            class="form-control"
+            id="InputImage"
+            name="image"
+            
+          />
+
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+        
+        </div>
+       
+    </div>
+  </div>
+
+</div>
+
+
+
+{{!-- orderDetail view --}}
+<link rel="stylesheet" href="/stylesheets/orderView.css" />
+<section class="p-5 section containerfluid">
+    <div class="container superMain">
+        <div class="row">
+            <div class="title">ORDERS</div>
+            {{#each ordDetails}}
+                    {{#each this.order}}
+            <div class="col-12">
+                <div class="row main">
+                    
+                    
+                    <div class="col-md-4 col-sm-12 details">
+                        
+                        <div class="image">
+                            <img src="/images/productimg/{{this.image.[0]}}" alt="">
+                        </div>
+                        <div class="content">
+                            <div class="body"><h5>{{this.productName}}</h5>
+                        <p> <span>{{this.catogory}}</span> </p>
+                        <span>₹{{this.price}}</span>
+                        
+                        </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-4 col-sm-12 details">
+
+                        <div class="content">
+                            <div class="body"><p> <span>Order Date & time:</span> <span>{{../this.date}}</span>    </p>
+                            <p> <span>Order Status:</span> <span>{{../this.status}}</span>    </p>
+                            
+                        
+
+                        </div>
+
+
+                    </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12 details">
+
+                        <div class="content">
+                            <div class="body"><h6 style="font-weight:bold ;">About Product:</h6 style="font-weight:bold ;">
+                        <p> <span>{{this.discription}}</span> </p>
+                        <span >Quantity: {{../this.quantity}}</span>
+                        
+                        </div>
+
+                        </div>
+
+                        
+                        
+                       </div>
+                </div>
+
+                
+
+
+            </div>
+            <div class="detialBox">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="title">
+                            ADDRESS
+                        </div>
+                    <div class="addressbox">
+                        
+                        <div>
+                            <h5>{{../this.deliveryAddress.name}}</h5>
+                            <p>{{../this.deliveryAddress.address}}
+                                 <br>{{../this.deliveryAddress.locality}}<br >
+                                 {{../this.deliveryAddress.city}}<br>
+                                 {{../this.deliveryAddress.pincode}}, {{../this.deliveryAddress.state}} <br>
+                            
+                             </p>
+                            
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-6 col-sm-12">
+                     <div class="title">
+                            PAYMENT DETAILS
+                        </div>
+                    <div class="addressbox">
+                        
+                       <div>
+                       Payment Mode:   <span style="font-weight: bold;">{{../this.paymentMethod}}</span> <br>
+                       Total Amount:   <span style="font-weight: bold;">{{../this.amount}}</span><br>
+                       Amount Paid:   <span style="font-weight: bold;">{{../this.paymentDetails.amountPaid}}</span><br>
+                       
+                       </div>
+                    </div>
+
+                </div>
+            </div>
+
+            </div>
+
+            
+        </div>
+        {{/each}}
+        {{/each}}
+
+        <div class="statusUpdate">
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-12">
+                    <div class="redioBox">
+                        <div>
+
+
+                            <div class="form-check ">
+  <input class="form-check-input" type="radio" name="status" id="placed" value="PLACED" onchange="statusePlaced('{{ordId}}')">
+  <label class="form-check-label" for="placed">
+    PLACED
+  </label>
+
+  
+</div>
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="status" id="shipped" value="SHIPPED" onchange="stauseShipped('{{ordId}}')">
+  <label class="form-check-label" for="shipped">
+    SHIPPED
+  </label>
+
+  
+</div>
+
+
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="status" id="deliverd" value="DELIVERD" onchange="statuseDeliverd('{{ordId}}')">
+  <label class="form-check-label" for="placed">
+    DELIVERD 
+  </label>
+
+  
+</div>
+
+                        </div>
+
+                        
+                        
+                    </div>
+                </div>
+
+
+
+
+
+
+            <div class="col-md-8 col-sm-12">
+                <div class="redioBox">
+                    {{#each ordDetails}}
+                    <div>
+                        
+                        <div class="notification">
+                        <h6>THIS ORDER WAS <span style="color:red ;">{{this.status}}</span> </h6>
+                        <p>This order was {{this.status}},<br>the order Status Chnged for your Request</p>
+                     </div>
+
+                    </div>
+                    {{/each}}
+
+                     
+
+                </div>
+               
+            </div>
+
+            </div>
+            
+            
+        </div>
+
+
+        
+    </div>
+
+    <div>5</div>
+</section>
+
+/{{this._id}}
+
+
+
+{{!-- orderDetail view --}}

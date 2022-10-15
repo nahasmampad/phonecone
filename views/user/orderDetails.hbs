@@ -1,0 +1,108 @@
+<link rel="stylesheet" href="/stylesheets/orderDetails.css" />
+<link rel="stylesheet" href="/stylesheets/checkout.css" />
+
+<div class="container mt-5">
+  <div class="d-flex justify-content-end">
+    <a href="/downLoadInvoice/{{address._id}}">
+      <button class="btn btn-secondary mb-3">Download Invoice <i class="bi bi-file-earmark-arrow-down"></i></button>
+    </a>
+
+  </div>
+  <div class="row">
+
+    <div class="col-md-6 col-sm-12">
+      <div class="addressBox">
+        <h6>Address</h6>
+        <p>{{address.productDetails.deliveryAddress.name}}<br>
+          {{address.productDetails.deliveryAddress.address}} <br>
+          Location: {{address.productDetails.deliveryAddress.locality}} <br>
+          MOB: {{address.productDetails.deliveryAddress.mobileNo}}<br>
+          Pincode: {{address.productDetails.deliveryAddress.pincode}} </p>
+
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="addressBox">
+        <h6>Order Details :</h6>
+        <p>
+          Total Amount: <span>₹ {{address.productDetails.totalAmount}}</span> <br>
+          Date: <span>{{address.productDetails.dateAndTime}}</span> <br>
+          Payment Method: <span>{{address.productDetails.paymentMetohd}}</span> <br>
+          Coupen : <span>MM60_25RS</span><br>
+
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+
+
+  {{#each orderDetaisls}}
+  {{#each this.orders}}
+  <div class="productsViews">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 ">
+        <div class="proView ">
+          <div class="imgcontainer">
+
+            <img src="/images/productimg/{{this.image.[0]}}" alt="">
+          </div>
+          <div class="ms-3 matter">
+            <div>
+              <p> <span class="fw-bold">{{this.productName}}</span></p>
+              <p>Price: <span class="fw-bold"> {{this.price}}<span> <br>
+                    Category: <span class="fw-bold"> {{this.category}}<span></span>
+              </p>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="matter">
+          <div>
+            <p>Status: <span class="fw-bold">{{../this.status}}</span> <br>
+              Date: <span class="fw-bold">{{../this.dateAndTime}}</span> <br>
+              Quantity: <span class="fw-bold">{{../this.quantity}} </span> <br>
+
+            </p>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-12">
+        <div class="matter">
+          <div class="matter">
+            <button onclick="cancelOrders('{{../this.ordId}}','{{this._id}}')" type="button"
+              class="btn btn-outline-danger">Cancel</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  {{/each}}
+  {{/each}}
+
+</div>
+<script>
+  function cancelOrders(ordId, proId) {
+
+    console.log('cancel')
+    $.ajax({
+      url: '/deleteOrders',
+      method: "post",
+      data: {
+        ordId: ordId,
+        proId: proId
+
+      },
+      success: (response) => {
+        location.reload()
+      },
+    });
+  }
+</script>

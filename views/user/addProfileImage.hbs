@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="/stylesheets/addProfileImage.css" />
+<div class="main">
+    <div class="container ">
+        <div class="row d-flex justify-content-center">
+            <div class="col-6">
+                <div class="formimg">
+
+                    <form action="/addProfileImage" method="post" enctype="multipart/form-data">
+
+                    <label for="Imageid" id="image-div">Add Your Image</label>
+                            <input type="file" id="Imageid" name="image" class="form-control-file "
+                                style="display:none;visibility:none;" onchange="getImage(event)"
+                                accept="image/jpg,image/jpeg" multiple>
+
+                                <button type="submit">add</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

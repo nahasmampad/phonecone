@@ -1,0 +1,29 @@
+.imgContainer{
+    display: flex;
+    
+    
+}
+
+.imgcon{
+    width: 100px;
+    height: 120px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+
+}
+
+.imgcon img{
+    width: 80px;
+    height: 100px;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}

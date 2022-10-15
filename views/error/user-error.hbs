@@ -1,0 +1,64 @@
+<div class="wrapper">
+    <div >
+        <div class="error">
+
+            <img src="/images/err.gif" alt="">
+
+        </div>
+        <div>
+            <h6>Something Went Wrong</h6>
+            <p>{{err}}</p>
+            
+
+            
+
+        </div>
+        <div class="d-flex justify-content-center">
+            <a href="/"><button type="button" class="btn btn-light">Home</button></a>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+
+<style>
+    .wrapper {
+        background-color: #fff;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .error {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 300px;
+        height: 300px;
+        overflow: hidden;
+        border-radius: 50%;
+
+
+
+    }
+
+    .error img {
+        width: 150%;
+    }
+
+    h6 {
+        text-align: center;
+        margin-top: 5px;
+        color: red;
+    }
+    p{
+        text-align: center;
+        margin-top: 5px;
+        color: black;
+
+    }
+</style>

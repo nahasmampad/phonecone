@@ -1,0 +1,293 @@
+<link rel="stylesheet" href="/stylesheets/userProfile.css" />
+
+<section>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="profileBar">
+            
+            <div class="proImg">
+              <div class="changeProfileImage">
+                
+                <a href="/addProfileImage"><i class="bi bi-card-image"></i></a>
+              </div>
+              <img
+                src="/images/profileImage/{{user.image.[0]}}"
+                alt=""
+              />
+
+            </div>
+            <h5>{{user.firstname}} {{user.lastname}}</h5>
+
+          </div>
+        </div>
+
+        
+
+        <section class="details">
+
+          <div class="row">
+            <div class="col-md-4 col-sm-12">
+              <a href="/ordersView">
+                <div class="Menubox">
+                ORDERS
+              </div>
+              </a>
+
+              <a href="/userCart"><div class="Menubox">
+                MY CART
+              </div></a>
+              
+
+              <a href="/viewWishList"><div class="Menubox">
+                WISH LIST
+              </div></a>
+              <a href="/logout"><div class="Menubox">
+                LOGOUT
+              </div></a>
+              
+            </div>
+
+            <div class="col-md-8 col-sm-12">
+              <div class="title">
+                <div>
+                  MY PROFILE
+
+                </div>
+
+                <div><button onclick="editProfile()">EDIT</button></div>
+
+              </div>
+
+              <div class="contentCont">
+                <div class="content">
+                  {{user.firstname}}
+                </div>
+                <div class="content">
+                  {{user.lastname}}
+                </div>
+              </div>
+
+              <div class="contentCont">
+                <div class="content">
+                  {{user.email}}
+                </div>
+                <div class="content">
+                  {{user.mobileNo}}
+                </div>
+              </div>
+
+              <div class="editProfile" id="editProfile">
+                <div class="title">Edit Your Profile</div>
+                <div class="formCont">
+                  <form action="#">
+
+                    <div class="contentCont">
+
+                      <input
+                        class="content"
+                        type="text"
+                        
+                        name="firstname"
+                        value="{{user.deliveryAddress.name}}"
+                      />
+
+                      <input
+                        class="content"
+                        type="text"
+                        placeholder="Last Name"
+                        name="lastname"
+                        value="{{user.lastname}}"
+                      />
+
+                    </div>
+
+                    <div class="contentCont">
+
+                      <input
+                        class="content"
+                        type="text"
+                        placeholder="Email"
+                        name="email"
+                        value="{{user.email}}"
+                      />
+
+                      <input
+                        class="content"
+                        type="text"
+                        placeholder="Phone Number"
+                        name="phoneNo"
+                        value="{{user.mobilNo}}"
+                      />
+
+                    </div>
+
+                    <div>
+                      <a href=""><button type="button" class="btn btn-primary me-2">SAVE CHANGES</button></a>
+                        
+                        <button onclick="cancel()" type="button" class="btn btn-danger">CANCEL</button>
+                    </div>
+
+                  </form>
+
+                </div>
+              </div>
+
+              <div class="permenentAddress">
+                <div class="title">ADDEESS
+                    <div><button onclick="editAddress()">EDIT</button></div>
+                </div>
+                <div class="formCont">
+                  <form action="/addUserAddress" method="POST">
+
+                    <div class="contentCont">
+
+                      <input
+                        class="content"
+                        type="text"
+                        placeholder="Name"
+                        name="name"
+                        value="{{user.permanentAddress.name}}"
+                      />
+
+                      <input
+                        class="content"
+                        type="text"
+                        placeholder="Pincode"
+                        name="pincode"
+                         value="{{user.permanentAddress.pincode}}"
+                        
+                      />
+
+                    </div>
+
+                    <div class="contentCont">
+
+                      <input
+                        class="content"
+                        type="number"
+                        placeholder="Mobile"
+                        name="mobileNo"
+                        value="{{user.permanentAddress.mobileNo}}"
+                      />
+
+                      <input
+                        class="content"
+                        type="text"
+                        placeholder="Locality"
+                        name="locality"
+                        value="{{user.permanentAddress.mobileNo}}"
+                      />
+
+                    </div>
+
+
+                    <input
+                        class="content"
+                        style="width: 100%; height:100px ;"
+                        type="text"
+                        placeholder="Address"
+                        name="address"
+                        value="{{user.permanentAddress.address}}"
+                      />
+
+
+                      <div class="contentCont">
+
+                      <input
+                        class="content"
+                        type="text"
+                        placeholder="City/Street"
+                        name="city"
+                        value="{{user.permanentAddress.city}}"
+                      />
+
+                      <input
+                        class="content"
+                        type="text"
+                        
+                        name="state"
+                        value="{{user.permanentAddress.state}}"
+                        
+                      />
+
+                    </div>
+
+                    <div id="editAddress">
+                      <button type="submit" class="btn btn-primary me-2">SAVE CHANGES</button>
+                        <button type="button" class="btn btn-danger" onclick="cancelAddress()">CANCEL</button>
+
+                    </div>
+
+                    
+
+                  </form>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<script>
+  let profile = document.getElementById("editProfile");
+  let address = document.getElementById("editAddress");
+   let isShow = false
+   let addressShow = false
+  function editProfile(){ 
+    if(isShow){ 
+        profile.style.display ="none"
+     isShow =false
+      }else
+      {
+        profile.style.display ="block"
+         
+      isShow = true 
+      
+      } 
+
+      
+      }
+
+      function editAddress(){
+        if(addressShow){ 
+        address.style.display ="none"
+     addressShow =false
+      }else
+      {
+        address.style.display ="block"
+         
+      addressShow = true 
+      
+      } 
+
+      }
+
+      function cancel(){
+        if(isShow){
+        profile.style.display="none"
+        isShow=false
+        }
+       
+      }
+
+
+      function cancelAddress(){
+        if(addressShow){
+        address.style.display="none"
+        addressShow=false
+        }
+       
+      }
+</script>

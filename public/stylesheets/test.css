@@ -1,0 +1,97 @@
+.cardContainer {
+    width: 18rem;
+    height: 28rem;
+    background-color: #e7e5d9;
+    margin-top: 30px;
+
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+
+    Font-family: Calibri, Candara, Segoe, Segoe UI, Optima, Arial, sans-serif
+}
+
+.topSections {
+    height: 14rem;
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bottumSection {
+    background-color: #e7e5d9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+
+
+}
+
+.bottumSection h6 {
+    font-weight: bold;
+    text-align: center;
+}
+
+.staring {
+    font-size: 14px;
+}
+
+.amount {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.diver {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.cartFav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+}
+
+.cartFav button {
+    border: none;
+    color: black;
+    background-color: aliceblue;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    border-radius: 50%;
+
+
+
+}
+
+.buttonCart {
+    background-color: lightskyblue;
+}
+
+.imgContainer{
+    width: 150px;
+    height: 200px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.imgContainer img{
+    
+    height: 180px;
+}
+
+.mHead{
+    width: 200px;
+    
+}

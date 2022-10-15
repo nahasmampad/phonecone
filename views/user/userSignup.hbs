@@ -1,0 +1,127 @@
+
+
+<div class="backGround">
+<div class="login-page">
+  <div class="form">
+{{#if signupErr}}
+<p class="text-danger">This Email Allredy Existing</p>
+{{/if}}
+    <form class="login-form" action="/signup" method="POST" onsubmit="return varification()">
+      <p id="alert_message" class="text-danger"></p>
+      <input
+        type="text"
+        placeholder="First Name"
+        name="firstname"
+        type="text"
+        id="user_first_name"
+       
+      />
+
+      <input
+        type="text"
+        placeholder="Last Name"
+        name="lastname"
+        type="text"
+        
+       
+      />
+
+      <input
+        type="text"
+        placeholder="Email"
+        name="email"
+        type="email"
+        
+      />
+
+      <input
+        type="text"
+        placeholder="Mobile No"
+        name="mobileNo"
+        type="email"
+        
+      />
+
+      <input
+        type="password"
+        placeholder="Password"
+        name="password"
+        type="password"
+        id="password"
+      />
+      <input
+        type="password"
+        placeholder="Conform Password"
+        
+        type="password"
+        id="confpassword"
+      />
+
+      <input
+        type="text"
+        value=true
+        name="user"
+        hidden
+        
+        
+        
+        
+      />
+      <button type="submit">Signup</button>
+      <p class="message"><a href="/login">Ihave allredy an account</a></p>
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+{{!-- validation --}}
+<script>
+
+  function varification(){
+
+
+
+    var letter = /^[a-zA-Z\s]*$/g 
+  var firstname = document.getElementById('user_first_name').value;
+  var password = document.getElementById('password').value;
+  var confpassword = document.getElementById('confpassword').value;
+  
+  if(firstname==""){
+  document.getElementById('alert_message').innerHTML="Please Fill The User Name"
+  return false;
+  } 
+  
+  
+  else if (!firstname.match(letter))
+  { document.getElementById('alert_message').innerHTML="User Name Must Contain Only Alphabets"
+  return false;
+  }
+  
+  
+   else if (password=="")
+   {document.getElementById('alert_message').innerHTML="Please Fill The Password"
+
+   return false;
+   } 
+
+
+   else if (password.length <8)
+   {document.getElementById('alert_message').innerHTML="Password Must Contain 8 Charecter"
+
+   return false;
+   } 
+   
+   
+   else if(password!=confpassword)
+   { document.getElementById('alert_message').innerHTML="Password didnt match"
+    return false;
+   }
+  
+  
+   
+   
+    }
+
+</script>

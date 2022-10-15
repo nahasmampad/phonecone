@@ -1,0 +1,331 @@
+<div
+  style="height:100%; background: white;"
+  class=" p-5 d-flex align-items-center"
+>
+  <div class="container " >
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-8  ">
+        <section class="product">
+	<div class="product__photo ">
+		<div class="photo-container" >
+			<div class="photo-main d-flex align-items-center justify-content-center  ">
+				{{!-- image --}}
+
+				<img src="/images/productimg/{{product.image.[0]}}" alt="No Image Found"
+				
+				style=" height:400px;"
+				 id="mainImg" data-zoom-image="/images/productimg/{{product.image.[0]}}"/	>
+			</div>
+			<div class="photo-album d-flex justify-content-around">
+				<img src="/images/productimg/{{product.image.[0]}}" alt="" style="width:100px; height:100px; " class="img-thumbnail thumbImg me-1"   >
+				<img src="/images/productimg/{{product.image.[1]}}" alt="" style="width:100px; height:100px; " class="img-thumbnail thumbImg me-1"  >
+				<img src="/images/productimg/{{product.image.[2]}}" alt="" style="width:100px; height:100px; " class="img-thumbnail thumbImg me-1"  >
+				<img src="/images/productimg/{{product.image.[3]}}" alt="" style="width:100px; height:100px; " class="img-thumbnail thumbImg me-1"  >
+			</div>
+		</div>
+	</div>
+	
+	<div class="product__info">
+		
+		<div class="title">
+			<h1>{{product.productName}}</h1>
+			<span>PRO ID: {{product._id}}</span>
+		</div>
+		<div class="price">
+			 <span><h2>₹ {{product.price}}</h2></span>
+		</div>
+		<div class="">
+			<h5>Catogory: {{product.catogory}}</h5>
+			<h5>Brand: {{product.brand}}</h5>
+			<h5>Quantity: {{product.quantity}}</h5>
+			<h5 class="text-secondary">Discription:</h5>
+			<p class="me-3" >{{product.discription}}</p>
+
+		</div>
+		
+		
+
+
+		{{!-- <div class="variant">
+			<h3>SELECT A COLOR</h3>
+			<ul>
+				<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302064/codepen/delicious-apples/green-apple2.png" alt="green apple"></li>
+				<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302752/codepen/delicious-apples/yellow-apple.png" alt="yellow apple"></li>
+				<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302427/codepen/delicious-apples/orange-apple.png" alt="orange apple"></li>
+				<li><img src="https://res.cloudinary.com/john-mantas/image/upload/v1537302285/codepen/delicious-apples/red-apple.png" alt="red apple"></li>
+			</ul>
+		</div> --}}
+		{{!-- <div class="description">
+			<h3>BENEFITS</h3>
+			<ul>
+				<li>Apples are nutricious</li>
+				<li>Apples may be good for weight loss</li>
+				<li>Apples may be good for bone health</li>
+				<li>They're linked to a lowest risk of diabetes</li>
+			</ul>
+		</div> --}}
+		<button onclick="addToCart('{{product._id}}')" class="btn btn-success p-3">ADD TO CART</button>
+		<button class="btn btn-danger p-3">ADD TO FAVORITE</button>
+	</div>
+</section>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+ 
+<script src="https://cdn.jsdelivr.net/gh/igorlino/elevatezoom-plus@1.2.3/src/jquery.ez-plus.js"></script>
+<script>
+	$("#mainImg").ezPlus(
+		
+	);
+</script>
+
+<style>
+	/* ----- Variables ----- */
+$color-primary: #4c4c4c;
+$color-secondary: #a6a6a6;
+$color-highlight: #ff3f40;
+
+/* ----- Global ----- */
+* {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	height: 100%;
+	background-color: white;
+}
+
+body {
+	display: grid;
+	grid-template-rows: 1fr;
+	font-family: "Raleway", sans-serif;
+	background: white;
+}
+
+h3 {
+	font-size: 0.7em;
+	letter-spacing: 1.2px;
+	color: $color-secondary;
+}
+
+img {
+			max-width: 100%;
+			filter: drop-shadow(1px 1px 3px $color-secondary);
+		}
+
+/* ----- Product Section ----- */
+.product {
+	display: grid;
+	grid-template-columns: 0.9fr 1fr;
+	margin: auto;
+	padding: 2.5em 0;
+	min-width: 600px;
+	background-color: white;
+	border-radius: 5px;
+	 box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+/* ----- Photo Section ----- */
+.product__photo {
+	position: relative;
+}
+
+.photo-container {
+	position: absolute;
+	left: -2.5em;
+	display: grid;
+	grid-template-rows: 1fr;
+	width: 100%;
+	height: 100%;
+	border-radius: 6px;
+	box-shadow: 4px 4px 25px -2px rgba(0, 0, 0, 0.3);
+}
+
+.photo-main {
+	border-radius: 6px 6px 0 0;
+	background-color: #9be010;
+	background: radial-gradient(#e5f89e, #96e001);
+
+	.controls {
+		display: flex;
+		justify-content: space-between;
+		padding: 0.8em;
+		color: #fff;
+
+		i {
+			cursor: pointer;
+		}
+	}
+
+	img {
+		position: absolute;
+		left: -3.5em;
+		top: 2em;
+		max-width: 110%;
+		filter: saturate(150%) contrast(120%) hue-rotate(10deg)
+			drop-shadow(1px 20px 10px rgba(0, 0, 0, 0.3));
+	}
+}
+
+.photo-album {
+	padding: 0.7em 1em;
+	border-radius: 0 0 6px 6px;
+	background-color: #fff;
+
+	ul {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	li {
+		float: left;
+		width: 55px;
+		height: 55px;
+		padding: 7px;
+		border: 1px solid $color-secondary;
+		border-radius: 3px;
+	}
+}
+
+/* ----- Informations Section ----- */
+.product__info {
+	padding: 0.8em 0;
+}
+
+.title {
+	h1 {
+		margin-bottom: 0.1em;
+		color: $color-primary;
+		font-size: 1.5em;
+		font-weight: 900;
+	}
+
+	span {
+		font-size: 0.7em;
+		color: $color-secondary;
+	}
+}
+
+.price {
+	margin: 1.5em 0;
+	color: $color-highlight;
+	font-size: 1.2em;
+
+	span {
+		margin: 0;
+		padding-left: 0.15em;
+		font-size: 2.9em;
+	}
+}
+
+.variant {
+	overflow: auto;
+
+	h3 {
+		margin-bottom: 1.1em;
+	}
+
+	li {
+		float: left;
+		width: 35px;
+		height: 35px;
+		padding: 3px;
+		border: 1px solid transparent;
+		border-radius: 3px;
+		cursor: pointer;
+
+		&:first-child,
+		&:hover {
+			border: 1px solid $color-secondary;
+		}
+	}
+
+	li:not(:first-child) {
+		margin-left: 0.1em;
+	}
+}
+
+.description {
+	clear: left;
+	margin: 2em 0;
+
+	h3 {
+		margin-bottom: 1em;
+	}
+
+	ul {
+		font-size: 0.8em;
+		list-style: disc;
+		margin-left: 1em;
+	}
+
+	li {
+		text-indent: -0.6em;
+		margin-bottom: 0.5em;
+	}
+}
+
+.buy--btn {
+	padding: 1.5em 3.1em;
+	border: none;
+	border-radius: 7px;
+	font-size: 0.8em;
+	font-weight: 700;
+	letter-spacing: 1.3px;
+	color: #fff;
+	background-color: $color-highlight;
+	box-shadow: 2px 2px 25px -7px $color-primary;
+	cursor: pointer;
+
+	&:active {
+		transform: scale(0.97);
+	}
+}
+
+/* ----- Footer Section ----- */
+footer {
+	padding: 1em;
+	text-align: center;
+	color: #fff;
+
+	a {
+		color: $color-primary;
+
+		&:hover {
+			color: $color-highlight;
+		}
+	}
+}
+
+</style>
+
+<script>
+	var mainImg=document.getElementById('mainImg');
+	var thumbImg=document.getElementsByClassName('thumbImg');
+
+	thumbImg[0].onclick=function(){
+		mainImg.src = thumbImg[0].src
+		
+
+	
+  }
+	thumbImg[1].onclick=function(){
+	
+    mainImg.src = thumbImg[1].src
+
+  }
+	thumbImg[2].onclick=function(){
+    mainImg.src = thumbImg[2].src
+  }
+	thumbImg[3].onclick=function(){
+    mainImg.src = thumbImg[3].src
+  }
+</script>

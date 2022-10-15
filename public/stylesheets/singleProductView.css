@@ -1,0 +1,39 @@
+.imgContainer{
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 10px;
+    border: 1px solid #0088BE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.imgContainer img{
+    width: 100px;
+    height: 100px;
+}
+.subImage{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.singleImage{
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #0088BE;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

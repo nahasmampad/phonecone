@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/stylesheets/test.css" />
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-3 col-md-6 col-sm-12">
+      <div class="cardContainer">
+        <div class="topSections">
+
+        </div>
+        <div class="bottumSection">
+          <div class="seconraper">
+
+            <h5> APPLE 11 Pro_ 6Gb</h5>
+            <div class="diver">
+
+              <p><span>Mobile &nbsp;</span> <span>
+                  <span class="badge text-bg-success">
+                    <span class="staring">5</span>
+                    ★
+                  </span></span></p>
+
+            </div>
+
+
+
+            <p class="amount">
+              <span>$ 50626 &nbsp;</span>
+              <span> <del> &nbsp; $ 25369</del> &nbsp; </span>
+              <span> 18% off</span></p>
+
+            <div class="cartFav">
+              <div>
+                <button class="buttonCart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></button> &nbsp;
+                <button class="buttonfav"><i class="fa fa-heart" aria-hidden="true"></i></button>
+              </div>
+            </div>
+
+
+
+
+
+
+
+          </div>
+
+
+
+        </div>
+
+
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+</div>
+
+
+
+<div class="col-lg-3 col-md-6 col-sm-12 border-bottom pb-3 mb-4 ">
+  <a href="/viewProduct/{{this._id}}" class="text-decoration-none text-dark">
+    <div class="card rounded-5 d-flex justify-content-center " style="width: 18rem; background:#FAEFEF;">
+      <div class="d-flex justify-content-center">
+        <img src="/images/productimg/{{this.image.[0]}}" class="card-img-top mt-3" style="width:200px; height:200px;"
+          alt=""></div>
+
+
+      <div class="card-body rounded-5" style=" background:#E9E5E5;">
+        <h5 class="card-title">{{this.productName}}</h5>
+        <h5 class="card-title">₹: {{this.price}}</h5>
+        <p class="card-text">{{this.discription}}</p>
+  </a>
+
+
+  <button onclick="addToCart('{{this._id}}')" class="btn btn-success mt-3"><i
+      class="bi bi-cart-check-fill"></i></button>
+  <button onclick="addToWishlist('{{this._id}}','{{../user._id}}')" class="btn btn-Danger mt-3"><i
+      class="bi bi-heart-fill"></i></button>

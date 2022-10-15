@@ -1,0 +1,21 @@
+
+<div class="login-page w-100 h-100" style="background:linear-gradient(to right, #FFB246, #FD780D);">
+  <div class="form" >
+    
+    <form class="login-form" action="/login" method="POST">
+{{#if loginErr}}
+<p class="text-danger">Incorrect Mail or Password</p>
+
+
+{{/if}}
+
+
+
+    
+      <input type="text" placeholder="email" name="email" type="email"  require/>
+      <input type="password" placeholder="password" name="password" type="password" required/>
+      <button>signin</button>
+      <p class="message">Not registered? <a href="/signup">Create an account</a></p>
+    </form>
+  </div>
+</div>

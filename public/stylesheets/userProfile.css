@@ -1,0 +1,139 @@
+body{
+    margin: 15;
+}
+.profileBar{
+    background: #0088BE;
+    height: 100px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+    
+    
+}
+.proImg{
+    width: 150px;
+    height: 150px;
+    
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    
+    
+    
+}
+
+.proImg img{
+    width: 100%;
+    
+}
+
+.profileBar h5{
+    margin-left: 30px;
+    margin-top: 40px;
+    color: white;
+}
+
+
+.details{
+    margin-top: 10%;
+}
+
+.Menubox{
+    height: 50px;
+    
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+}
+
+.title{
+    background: #1167b1;
+    padding:10px;
+    
+    
+    
+    margin-bottom: 5px;
+    color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.contentCont{
+    display: flex;
+    justify-content: space-between;
+}
+
+.content{
+    border: 1px solid #D2D2D3;
+    width: 48%;
+    height: 50px;
+    padding: 10px;
+    background: #fafafa;
+    margin-bottom: 10px;
+    
+    
+
+}
+
+.title button{
+    background: white;
+    border: none;
+    padding: 5px;
+    width: 55px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.Menubox :hover{
+    background-color: #0088BE;
+    
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+
+#editProfile{
+    display: none;
+}
+
+#editAddress{
+    display: none;
+}
+
+.changeProfileImage{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: gray ;
+    z-index: 10;
+    position: absolute;
+    margin-top: 140px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    
+    
+
+}
+
+.changeProfileImage img{
+    position: relative;
+}
+
+.changeProfileImage a{
+    text-decoration: none;
+    color: white;
+}
+
+   

@@ -1,0 +1,56 @@
+
+
+.main{
+    font-family: Roboto,Arial,sans-serif;
+    background: #01C0A6;
+    height: 100%;
+    width: 100vw;
+    opacity: 1;
+}
+
+.raper{
+    background:#01C0A6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+.contentRaper{
+    background: white ;
+    padding: 10px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    text-align: center;
+    width: 40%;
+    height: 50%;
+}
+
+.contentRaper h4  {
+    color: #01C0A6;
+    
+}
+
+.contentRaper img{
+    width: 150px;
+    margin-bottom: 30px;
+}
+button{
+    width: 50%;
+    height: 10%;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    border: none;
+    background: #01C0A6;
+    color: white;
+    padding: 5px;
+    font-size: 15px;
+
+}
+
+button:hover {
+    background: white;
+    color: #01C0A6;
+    border: 1px solid #01C0A6;
+
+}

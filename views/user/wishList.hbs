@@ -1,0 +1,132 @@
+<link rel="stylesheet" href="/stylesheets/wishList.css" />
+<link rel="stylesheet" href="/stylesheets/popup.css" />
+<div class="cart-wrap">
+		<div class="container">
+            {{#if response}}
+            
+	        <div class="row">
+			    <div class="col-md-12">
+			        <div class="main-heading mb-10"><i class="bi bi-chat-square-heart"></i> My wishlist</div>
+			        <div class="table-wishlist">
+				        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+				        	
+
+                            {{#each response}}
+                            {{#each this.wishList}}
+					        <div class="container">
+		<div class="row">
+			<div class="col-12 main">
+
+				<div class="container">
+
+					<div class="row">
+					<div class="col-md-8  d-flex align-items-center">
+						<div class="proImg">
+							<img src="/images/productimg/{{this.image.[0]}}" alt="">
+							
+						</div>
+						<div class="text">
+							<h5>{{this.productName}}</h5>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias iure iusto tenetur quasi hic odio placeat. Odit, ab. Natus voluptatem nihil consectetur sit reprehenderit at. Similique magnam eligendi neque corporis.</p>
+						</div>
+					</div>
+					
+					<div class="col-4">
+						<div class="deleteIcon">
+							 <button onclick=" removeWishItem('{{this._id}}')" >x</button>
+						</div>
+
+						<div class="cartPart">
+							
+							
+							<div>
+								<h4>₹{{this.price}}</h4>
+
+						<button  onclick="addToCart('{{this._id}}')">Add to Cart</button>
+
+							</div>
+
+							
+
+						</div>
+
+						
+					</div>
+				</div>
+
+				</div>
+				
+			</div>
+		</div>
+	</div>
+                             {{/each}}
+                             {{/each}}
+				        </table>
+				    </div>
+			    </div>
+                
+			</div>
+            {{else}}
+			<div class="gifCon">
+  <div class="conSub">
+
+    <div class="gif">
+      <img src="images/gif/wish.gif" alt="">
+      
+    </div>
+
+
+    <div class="title">
+      
+      <h5>No Items In Your WishList</h5>
+    </div>
+
+  </div>
+  
+    
+
+  
+
+
+</div>
+            {{/if}}
+            
+           
+		</div>
+	</div>
+
+    <script>
+        function removeWishItem(proId){
+            alert("do you want remove this")
+    
+    $.ajax({
+      url: '/removeWishItems',
+      data:{
+        
+        proId:proId,
+        
+      },
+      type:'post',
+      success:(response)=>{
+        
+        
+      location.reload()
+      
+      
+      }
+
+      
+
+      
+    })
+    
+    
+  }
+
+
+  
+    </script>
+
+
+
+	

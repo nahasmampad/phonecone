@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@500&family=Public+Sans:wght@200;400;500;800&display=swap');
+
+
+
+.checkout {
+    
+    font-family: 'Public Sans', sans-serif;
+    background: #ececec;
+    height: 100%;
+}
+
+.title {
+    background: #1167b1;
+    padding: 10px 10px 5px 5px;
+
+
+    margin-top: 10px;
+}
+
+.title h5 {
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+
+}
+
+.content {
+    margin-top: 5;
+    padding: 15px;
+    background: #fafafa;
+    border-bottom: 1px solid #1167b1;
+
+
+}
+
+.content button {
+    padding: 5px 10px;
+    background-color: #1167b1;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    margin-left: 4;
+
+    border-radius: 30px;
+    color: white;
+    margin-top: 5;
+}
+
+.orderDetails {
+    display: flex;
+    justify-content: start;
+    padding: 10;
+    background: #fafafa;
+    border-bottom: 1px solid #1167b1;
+    margin-top: 5px;
+
+}
+
+.orderDetails img {
+    width: 100px;
+
+    margin-right: 50px;
+
+}
+
+.orderSummery {
+    margin-top: 20px;
+}
+
+.priceDetails {
+
+    background: #fafafa;
+    padding: 10px;
+    margin-top: 10px;
+
+
+}
+
+.price {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+}
+
+.btnBuy {
+    padding: 10px;
+    background-color: #11b121;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+
+    width: 100%;
+
+
+    color: white;
+    margin-top: 5;
+}
+
+.addressForm {
+    display: flex;
+
+}
+
+.newAddress input {
+    border: #1167b1 solid 1px;
+    height: 40px;
+    width: 100%;
+    margin: 5px;
+
+
+}
+
+.newAddress input[name=address] {
+    height: 100px;
+}
+
+.content .btnAddSub {
+    padding: 10px;
+    background-color: #0fd45e;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+
+    width: 100%;
+    border-radius: 0;
+
+
+    color: white;
+    margin-top: 5;
+
+}
+
+.content .btnCancel {
+    padding: 10px;
+    background-color: red;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+
+    width: 100%;
+    border-radius: 0;
+
+
+    color: white;
+    margin-top: 5;
+}
+
+.pmode {
+    background: #ffa701;
+    padding: 5;
+    color: white;
+    text-align: center;
+    margin-bottom: 10;
+
+}
+
+.paymentMode .btnBuy {
+
+    padding: 10px;
+    background-color: #4cb111;
+    border: 0px;
+    outline: none;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 0;
+
+    width: 100%;
+
+
+    color: white;
+    margin-top: 10;
+
+}
+
+#newAddress {
+    display: none;
+}
+
+.notifications {
+    color: #1167b1;
+    margin-top: 10px;
+
+}
+
+#coupenBox {
+    display: none;
+}
+
+.nonButton {
+    border: none;
+    background: white;
+}
+
+.notifications:hover {
+    color: #4cb111;
+    cursor: pointer;
+}
+
+#coupNotification {
+    display: none;
+}

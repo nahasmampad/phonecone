@@ -1,0 +1,48 @@
+.mainWrapper{
+    width: 100%;
+    padding: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background: white;
+}
+
+.spanBold span{
+    font-weight: bold;
+}
+
+.prodductDeils{
+    width: 100%;
+    padding: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background: white;
+    margin-top: 20px;
+    
+}
+
+.imgContainer{
+    width: 100px;
+    height: 120px;
+    color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    overflow: hidden;
+
+}
+
+.imgContainer img{
+    width: 100px;
+    height: 100px;
+
+}
+
+.progressLine{
+    display: flex;
+    justify-content: space-between;
+}
+
+.marginBottem{
+    border-bottom: 1px solid rgba(255, 225, 225, 1);
+    padding: 10px;
+}

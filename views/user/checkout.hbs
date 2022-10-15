@@ -1,0 +1,298 @@
+<link rel="stylesheet" href="/stylesheets/checkout.css" />
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+
+<section class="checkout">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-8 col-sm-12 p-5">
+        <div class="addressView">
+          <div class="title">
+            <h5>DELIVERY ADDRESS</h5>
+          </div>
+          <div class="content">
+            {{#if newAddress}}
+            <P>{{newAddress.name}}, {{newAddress.address}}
+              <br />
+              {{newAddress.city}}, {{newAddress.pincode}},{{newAddress.state}}
+
+              <button onclick="addressView()">Change address</button>
+
+            </P>
+            {{else}}
+            <p>Pleace Add Address</p>
+            <button onclick="addressView()">Add Address</button>
+            {{/if}}
+
+          </div>
+
+
+          <div id="newAddress" class="newAddress">
+
+            <div class="title addressForm">
+              <h5>Enter New Address</h5>
+            </div>
+            <div class="content">
+              <form class="newAddress" id="addNewAddress">
+                <div class="row">
+
+                  <div class="col-md-6 col-sm-12">
+                    <input type="text" id="name" name="name" placeholder="Name" required />
+                    <input type="number" id="pincode" name="pincode" placeholder="Pincode" required />
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <input type="number" name="mobileNo" id="mobileNo" placeholder="10 digit mobile number" required />
+
+                    <input type="text" id="locality" name="locality" placeholder="Locality" required />
+
+                  </div>
+
+                </div>
+
+                <div>
+                  <input type="text" id="address" name="address" placeholder="address" required />
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 col-sm-12">
+                    <input type="text" id="city" name="city" placeholder="City/Street" required />
+
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+
+                    <input type="text" id="state" name="state" placeholder="State" required />
+                  </div>
+                </div>
+
+                <div>
+                  <div class="row">
+                    <div class="col-6">
+                      <div class="row">
+                        <div class="col-8">
+                          <button class="btnAddSub" onclick="changeAddress()">SAVE AND DELIVER HERE</button>
+
+                        </div>
+
+                        <div class="col-4">
+                          <button class="btnCancel" onclick="cancel()">CANCEL</button>
+
+                        </div>
+                      </div>
+
+                    </div>
+
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+
+        <div class="orderSummery">
+          <div class="title">
+            <h5>ORDER SUMMARY</h5>
+          </div>
+          {{#each cartitem }}
+          {{#each this.cartItems }}
+
+          <div class="orderDetails">
+            <img src="/images/productimg/{{this.image.[0]}}" alt="" />
+            <div>
+              <h4>{{this.productName}}</h4>
+              <h5>{{this.catogory}}</h5>
+              <h5>{{this.brand}}</h5>
+              <h4 class="fw-bold">₹{{this.price}}</h4>
+              <h5>Quantity: {{../this.count}}</h5>
+            </div>
+          </div>
+          {{/each}}
+          {{/each}}
+        </div>
+
+
+      </div>
+      <div id="paymentMode" class="col-md-4 col-sm-12 p-5">
+        <div class="priceDetails">
+          <div class="title">
+            <h5>PRICE DETAILS</h5>
+          </div>
+          <div class="content">
+            <P class="price"><span>Price ({{cartLength}} items)</span>
+              <span>₹ {{total}}</span>
+            </P>
+          </div>
+          <div class="content">
+            <p class="price fw-bold"><span>Total Payable</span>
+              <span>₹ {{total}}</span></p>
+          </div>
+
+        </div>
+
+
+
+        <div>
+
+          <div class="paymentMode">
+            <div class="content">
+              <div class="pmode">
+                SELECT YOUR PAYMENT MODE
+
+              </div>
+              <form class="paymentMode" id="paymentMethodForm" method="post">
+
+                <input type="radio" id="cod" name="paymentMethod" value="COD" />
+                <label for="cod">COD</label><br />
+                <input type="radio" id="onlineMode" name="paymentMethod" value="onlinePayment" />
+                <label for="html">Online Payment</label><br />
+
+                <div class="notifications" onclick="openCoupen()">i have a Coupen</div>
+
+                <div id="coupenBox">
+
+                  <label for="defaultFormControlInput" class="form-label mt-3">Coupen Code:</label>
+                  <input type="text" class="form-control" id="defaultFormControlInput"
+                    placeholder="Pleace Enter Coupen Code" aria-describedby="defaultFormControlHelp" name="coupCode" />
+
+
+                </div>
+
+                <div id="coupNotification">
+
+                  <p class="text-danger"> Invalid Coupen ode</p>
+
+                  <button onclick="location.reload()" style=" border: none;
+    background: white; color:black">Try Again</button>
+
+                </div>
+
+
+
+
+
+
+
+                <button class="btnBuy" id="rzp-button1" onclick="placeOrder()">BUY NOW</button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  let address = document.getElementById("newAddress");
+  let coupen = document.getElementById("coupenBox")
+
+
+  let isShow = false
+
+  function addressView() {
+    if (isShow) {
+      address.style.display = "none"
+      isShow = false
+    } else {
+      address.style.display = "block"
+
+      isShow = true
+
+    }
+
+
+  }
+
+  function cancel() {
+    if (isShow) {
+      address.style.display = "none"
+      isShow = false
+    }
+
+  }
+
+
+
+
+  //coupen
+
+  function openCoupen() {
+
+    if (isShow) {
+      coupen.style.display = "none"
+      isShow = false
+    } else {
+      coupen.style.display = "block"
+
+      isShow = true
+
+
+    }
+
+  }
+
+
+  //place order
+
+
+
+  function placeOrder() {
+
+    
+
+    $("#paymentMethodForm").submit((e) => {
+      e.preventDefault();
+
+      $.ajax({
+
+        url: '/placeOrder',
+        type: "post",
+        data: $("#paymentMethodForm").serialize(),
+        success: (response) => {
+
+          if (response.added) {
+            alert("pleace enter address");
+
+          } else if (response.status) {
+
+            location.href = '/paymentSuccess'
+
+          } else if (response.onPay) {
+
+            razorPayPayment(response.order);
+
+          } else if (response.wrongCoupId) {
+
+            document.getElementById("coupNotification").style.display = "block"
+
+          }
+        },
+      });
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+  //place order
+</script>

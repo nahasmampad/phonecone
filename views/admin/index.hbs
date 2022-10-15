@@ -1,0 +1,559 @@
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
+  data-template="vertical-menu-template-free">
+
+
+
+{{!-- custem Style Sheet --}}
+
+<link rel="stylesheet" href="/stylesheets/offers.css" />
+
+<body>
+  <!-- Layout wrapper -->
+  <div class="layout-wrapper layout-content-navbar">
+    <div class="layout-container">
+      <!-- Menu -->
+
+      <!-- Layout container -->
+      <div class="layout-page">
+        <!-- Navbar -->
+
+        <nav
+          class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+          id="layout-navbar">
+          <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+            <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+              <i class="bx bx-menu bx-sm"></i>
+            </a>
+          </div>
+
+          <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+            <!-- Search -->
+            <div class="navbar-nav align-items-center">
+              <div class="nav-item d-flex align-items-center">
+                <i class="bx bx-search fs-4 lh-0"></i>
+                <input type="text" class="form-control border-0 shadow-none" placeholder="Search"
+                  aria-label="Search..." />
+              </div>
+            </div>
+            <!-- /Search -->
+
+            <ul class="navbar-nav flex-row align-items-center ms-auto">
+              <!-- Place this tag where you want the button to render. -->
+              <li class="nav-item lh-1 me-3">
+                <a class="github-button" href="https://github.com/themeselection/sneat-html-admin-template-free"
+                  data-icon="octicon-star" data-size="large" data-show-count="true"
+                  aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
+              </li>
+
+              <!-- User -->
+              <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+                  <div class="avatar avatar-online">
+                    <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <div class="d-flex">
+                        <div class="flex-shrink-0 me-3">
+                          <div class="avatar avatar-online">
+                            <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                          </div>
+                        </div>
+                        <div class="flex-grow-1">
+                          <span class="fw-semibold d-block">John Doe</span>
+                          <small class="text-muted">Admin</small>
+                        </div>
+                      </div>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="dropdown-divider"></div>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <i class="bx bx-user me-2"></i>
+                      <span class="align-middle">My Profile</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <i class="bx bx-cog me-2"></i>
+                      <span class="align-middle">Settings</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">
+                      <span class="d-flex align-items-center align-middle">
+                        <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
+                        <span class="flex-grow-1 align-middle">Billing</span>
+                        <span class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
+                      </span>
+                    </a>
+                  </li>
+                  <li>
+                    <div class="dropdown-divider"></div>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="auth-login-basic.html">
+                      <i class="bx bx-power-off me-2"></i>
+                      <span class="align-middle">Log Out</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <!--/ User -->
+            </ul>
+          </div>
+        </nav>
+
+        <!-- / Navbar -->
+
+        <!-- Content wrapper -->
+
+        <div class="content-wrapper">
+          <div class="container-xxl flex-grow-1 container-p-y">
+
+            {{!-- content start --}}
+
+
+
+            <div class="container">
+              <div class="d-flex justify-content-center">
+
+
+              </div>
+              <div class="row">
+                <div class="col-md-6 col-sm-12">
+                  <div class="row mb-4">
+                    <div class="col-6 mb-5">
+
+
+                      <div class="card mb-2">
+                        <div class="card-body">
+                          <div class="card-title d-flex align-items-start justify-content-between">
+                            <div class="avatar flex-shrink-0">
+                              <span class="rounded p-2  " style="background-color: lightgrey; color:aliceblue;"><i
+                                  class="bi bi-bag-heart"></i> </span>
+
+                            </div>
+                            <div class="dropdown">
+                              <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
+                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                              </div>
+                            </div>
+                          </div>
+                          <span>Total Products</span>
+                          <h3 class="card-title text-nowrap mb-1">{{totalProduct}}</h3>
+
+                        </div>
+                      </div>
+
+
+
+
+                    </div>
+                    <div class="col-6">
+
+                      <div class="card mb-2">
+                        <div class="card-body">
+                          <div class="card-title d-flex align-items-start justify-content-between">
+                            <div class="avatar flex-shrink-0">
+                              <span class="rounded p-2  " style="background-color: lightgrey; color:aliceblue;"><i
+                                  class="bi bi-bag-heart"></i> </span>
+                            </div>
+                            <div class="dropdown">
+                              <button class="btn p-0" type="button" id="cardOpt6" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt6">
+                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                              </div>
+                            </div>
+                          </div>
+                          <span>Total users</span>
+                          <h3 class="card-title text-nowrap mb-1">{{totalUsers}}</h3>
+
+                        </div>
+                      </div>
+
+
+
+
+                    </div>
+                    <div class="col-6">
+
+
+
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title d-flex align-items-start justify-content-between">
+                            <div class="avatar flex-shrink-0">
+                              <img src="../assets/img/icons/unicons/paypal.png" alt="Credit Card" class="rounded" />
+                            </div>
+                            <div class="dropdown">
+                              <button class="btn p-0" type="button" id="cardOpt4" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="cardOpt4">
+                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="d-block mb-1">Total Orders</span>
+                          <h3 class="card-title text-nowrap mb-2">{{totalOrder}}</h3>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6">
+
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="card-title d-flex align-items-start justify-content-between">
+                            <div class="avatar flex-shrink-0">
+                              <img src="../assets/img/icons/unicons/cc-primary.png" alt="Credit Card" class="rounded" />
+                            </div>
+                            <div class="dropdown">
+                              <button class="btn p-0" type="button" id="cardOpt1" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <i class="bx bx-dots-vertical-rounded"></i>
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="cardOpt1">
+                                <a class="dropdown-item" href="javascript:void(0);">View More</a>
+                                <a class="dropdown-item" href="javascript:void(0);">Delete</a>
+                              </div>
+                            </div>
+                          </div>
+                          <span class="fw-semibold d-block mb-1">Total Category</span>
+                          <h3 class="card-title mb-2">{{totalCategor}}</h3>
+
+                        </div>
+                      </div>
+
+
+
+
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+
+
+                  <div class="card">
+                    <div class="row row-bordered g-0">
+
+                      <h5 class="card-header m-0 me-2 pb-3">Total Revenue</h5>
+                      <div id="totalRevenueChart" class="px-2"></div>
+
+
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+
+
+                <div class="row">
+                  <div class="col-md-6 col-sm-12">
+
+
+                    <div class="card h-100">
+                      <div class="card-header d-flex align-items-center justify-content-between pb-0">
+                        <div class="card-title mb-0">
+                          <h5 class="m-0 me-2">Order Statistics</h5>
+                          <small class="text-muted">Order Status Report</small>
+                        </div>
+                        <div class="dropdown">
+                          <button class="btn p-0" type="button" id="orederStatistics" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="bx bx-dots-vertical-rounded"></i>
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="orederStatistics">
+                            <a class="dropdown-item" href="javascript:void(0);">Select All</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Share</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                          <div class="d-flex flex-column align-items-center gap-1">
+                            <h2 class="mb-2">{{totalOrder}}</h2>
+                            <span>Total Orders</span>
+                          </div>
+                          <div id="orderStatisticsChart"></div>
+                        </div>
+                        <ul class="p-0 m-0">
+                          {{#each statusCount}}
+                          <li class="d-flex mb-4 pb-1">
+                            <div class="avatar flex-shrink-0 me-3">
+                              <span class="avatar-initial rounded bg-label-primary"><i
+                                  class="bi bi-circle-fill"></i></span>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                              <div class="me-2">
+                                <h6 class="mb-0">{{this._id}}</h6>
+                                <small class="text-muted"></small>
+                              </div>
+                              <div class="user-progress">
+                                <small class="fw-semibold">{{this.count}}</small>
+                              </div>
+                            </div>
+                          </li>
+                          {{/each}}
+
+
+
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                  <div class="col-md-6 col-sm-12">
+                    <div class="card h-100">
+                      <div class="card-header d-flex align-items-center justify-content-between">
+                        <h5 class="card-title m-0 me-2">Category Sales</h5>
+                        <div class="dropdown">
+                          <button class="btn p-0" type="button" id="transactionID" data-bs-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="bx bx-dots-vertical-rounded"></i>
+                          </button>
+                          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="transactionID">
+                            <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
+                            <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <ul class="p-0 m-0">
+                          {{#each categorySales}}
+                          <li class="d-flex mb-4 pb-1">
+                            <div class="avatar flex-shrink-0 me-3">
+                              <span class="avatar-initial rounded bg-label-primary"><i
+                                  class="bi bi-circle-fill"></i></span>
+                            </div>
+                            <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
+                              <div class="me-2">
+                                <small class="text-muted d-block mb-1"></small>
+                                <h6 class="mb-0">{{this._id}}</h6>
+                              </div>
+                              <div class="user-progress d-flex align-items-center gap-1">
+                                <h6 class="mb-0">{{this.totalAmount}}</h6>
+                                <span class="text-muted">INR</span>
+                              </div>
+                            </div>
+                          </li>
+                          {{/each}}
+
+
+
+
+
+                        </ul>
+                      </div>
+                    </div>
+
+
+
+                  </div>
+
+                </div>
+              </div>
+
+
+              {{!-- table --}}
+
+              <div class="card mt-5 d-flex justify-content-center">
+
+                <h5 class="card-header">Sales Report</h5>
+                <div class="table-responsive text-nowrap">
+                  <table class="table tablemanager" id="tablemanager">
+                    <thead>
+                      <tr>
+                        <th>Ord Id</th>
+                        <th>Date</th>
+                        <th>Product</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
+                        <th>Payment Method</th>
+                        <th>Total </th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-border-bottom-0">
+
+
+                      {{#each salesReport}}
+                      <tr>
+                        <td>{{this.ORD_Id}}</td>
+                        <td>{{this.Date}}</td>
+                        <td>{{this.Product}}</td>
+                        <td>{{this.UnitPrice}}</td>
+                        <td>{{this.Quantity}}</td>
+                        <td>{{this.paymentMethod}}</td>
+                        <td>{{this.Total}}</td>
+
+                      </tr>
+                      {{/each}}
+
+
+
+
+                </div>
+                </tbody>
+                </table>
+
+
+              </div>
+
+            </div>
+
+
+
+            <div>
+              <button onclick="ExportToExcel('xlsx')" class="btn btn-secondary mb-3 mt-3">Download Sales Report <i
+                  class="bi bi-file-earmark-arrow-down"></i></button>
+            </div>
+
+
+
+
+            {{!-- content end --}}
+
+          </div>
+
+        </div>
+
+        <!-- / Content -->
+
+        <!-- Footer -->
+        <footer class="content-footer footer bg-footer-theme">
+          <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+            <div class="mb-2 mb-md-0">
+              ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              , made with ❤️ by
+              <a href="https://themeselection.com" target="_blank" class="footer-link fw-bolder">ThemeSelection</a>
+            </div>
+            <div>
+              <a href="https://themeselection.com/license/" class="footer-link me-4" target="_blank">License</a>
+              <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
+                Themes</a>
+
+              <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
+                target="_blank" class="footer-link me-4">Documentation</a>
+
+              <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues" target="_blank"
+                class="footer-link me-4">Support</a>
+            </div>
+          </div>
+        </footer>
+        <!-- / Footer -->
+
+        <div class="content-backdrop fade"></div>
+      </div>
+      <!-- Content wrapper -->
+    </div>
+    <!-- / Layout page -->
+  </div>
+
+  <!-- Overlay -->
+  <div class="layout-overlay layout-menu-toggle"></div>
+  </div>
+  <!-- / Layout wrapper -->
+
+
+  <script src="/javascripts/tableManager.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/xlsx@0.15.1/dist/xlsx.full.min.js"></script>
+
+  <script>
+    //Table Management
+    $('#tablemanager').tablemanager({
+      firstSort: [
+        [3, 0],
+        [2, 0],
+        [1, 'asc']
+      ],
+      disable: ["last"],
+      appendFilterby: true,
+      dateFormat: [
+        [4, "dd-mm-yyyy"]
+      ],
+      debug: true,
+      vocabulary: {
+        voc_filter_by: 'Filtra per ',
+        voc_type_here_filter: 'Search',
+        voc_show_rows: 'Limit'
+      },
+      pagination: true,
+      showrows: [10, 20, 50, 100],
+      disableFilterBy: [1]
+    });
+
+    //Table Excel
+    function ExportToExcel(type, fn, dl) {
+      var elt = document.getElementById('tablemanager');
+      var wb = XLSX.utils.table_to_book(elt, {
+        sheet: "sheet1"
+      });
+      return dl ?
+        XLSX.write(wb, {
+          bookType: type,
+          bookSST: true,
+          type: 'base64'
+        }) :
+        XLSX.writeFile(wb, fn || ('MySheetName.' + (type || 'xlsx')));
+    }
+
+
+
+
+    $(document).ready(function () {
+      $('#tbl_exporttable_to_xls').DataTable();
+    });
+
+
+
+
+    function deleteCoupen(coupId) {
+      $.ajax({
+        url: '/admin/deleteCoupen',
+        data: {
+          coupId: coupId
+        },
+        method: "post",
+        success: (response) => {
+
+          console.log("success")
+          location.reload()
+
+        }
+      })
+    }
+  </script>
+
+
+
+
+
+</body>
+
+</html>
