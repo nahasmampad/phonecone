@@ -8,6 +8,13 @@ var userDetails = require("../helpers/userhelpers");
 const { render, response } = require("../app");
 const { Router } = require("express");
 const multer = require("multer");
+function verifyLoginUser(req,res,next){
+  if(req.session.logedIn){  
+    next()
+  }else{
+    res.redirect('/login')
+  }
+}
 
 // Multer module defining
 const fileStorageEngine = multer.diskStorage({
@@ -40,37 +47,37 @@ router.get("/viewProduct/:id", userControllers.getViewProduct);
 //Category
 
 //User cart
-router.get("/addToCart/:id", userControllers.getAddCart);
-router.get("/userCart", userControllers.getUserCart);
-router.post("/changeCount", userControllers.postChangeItemCount);
-router.get("/removeCartItem/:proId", userControllers.getRemoveCart);
+router.get("/addToCart/:id",verifyLoginUser, userControllers.getAddCart);
+router.get("/userCart",verifyLoginUser,  userControllers.getUserCart);
+router.post("/changeCount",verifyLoginUser,  userControllers.postChangeItemCount);
+router.get("/removeCartItem/:proId",verifyLoginUser,  userControllers.getRemoveCart);
 
 //Wish List
-router.post("/addToWishList", userControllers.postAddToWishList);
-router.get("/viewWishList", userControllers.getViewWishList);
-router.post("/removeWishItems", userControllers.postRemoveWishList);
-router.get("/checkout", userControllers.getCheckout);
-router.post("/changeAddress", userControllers.postChangeAddress);
+router.post("/addToWishList",verifyLoginUser,  userControllers.postAddToWishList);
+router.get("/viewWishList",verifyLoginUser,  userControllers.getViewWishList);
+router.post("/removeWishItems",verifyLoginUser,  userControllers.postRemoveWishList);
+router.get("/checkout",verifyLoginUser,  userControllers.getCheckout);
+router.post("/changeAddress",verifyLoginUser,  userControllers.postChangeAddress);
 
 //Place Oreder
-router.post("/placeOrder", userControllers.postPlaceOrder);
+router.post("/placeOrder",verifyLoginUser,  userControllers.postPlaceOrder);
 
 //Verify Payment
-router.post("/verifyPayment", userControllers.postVerifyPayment);
+router.post("/verifyPayment",verifyLoginUser,  userControllers.postVerifyPayment);
 
 //View Order
-router.get("/ordersView", userControllers.getOrdresView);
-router.get("/paymentSuccess", userControllers.getPaymentsuccess);
-router.post("/deleteOrders", userControllers.getCancelOrder);
-router.get("/orderDetails/:Id/:ordId", userControllers.getOrderDetails);
-router.get("/userProfile", userControllers.getUserProfile);
+router.get("/ordersView",verifyLoginUser,  userControllers.getOrdresView);
+router.get("/paymentSuccess",verifyLoginUser,  userControllers.getPaymentsuccess);
+router.post("/deleteOrders",verifyLoginUser,  userControllers.getCancelOrder);
+router.get("/orderDetails/:Id/:ordId",verifyLoginUser,  userControllers.getOrderDetails);
+router.get("/userProfile",verifyLoginUser,  userControllers.getUserProfile);
 
 //Buy Single Product
-router.get("/buySigleItem/:id", userControllers.buySinglItem);
-router.post("/placeOrderSingle", userControllers.postPlaceOrderSingle);
-router.post("/addUserAddress", userControllers.getAddUserAddress);
-router.get("/addProfileImage", userControllers.getAddProfilePicture);
-router.post("/addProfileImage", upload.array("image", 1), (req, res) => {
+router.get("/buySigleItem/:id",verifyLoginUser,  userControllers.buySinglItem);
+router.post("/placeOrderSingle",verifyLoginUser,  userControllers.postPlaceOrderSingle);
+router.post("/addUserAddress",verifyLoginUser,  userControllers.getAddUserAddress);
+router.get("/addProfileImage",verifyLoginUser,  userControllers.getAddProfilePicture);
+router.post("/addProfileImage",verifyLoginUser,  upload.array("image", 1), (req, res) => {
   const Images = [];
   for (i = 0; i < req.files.length; i++) {
     Images[i] = req.files[i].filename;
@@ -87,7 +94,7 @@ router.post("/addProfileImage", upload.array("image", 1), (req, res) => {
 
 
 //Category
-router.get('/userCatogory:category',userControllers.getUserCategory)
+router.get('/userCatogory:category',verifyLoginUser, userControllers.getUserCategory)
 
 //test
 
@@ -95,10 +102,10 @@ router.get("/test", userControllers.get);
 
 //Get All Product for Pagination
 
-router.get("/getAllProducts", userControllers.getAllProducts)
+router.get("/getAllProducts",verifyLoginUser,  userControllers.getAllProducts)
 
 // User Invoice
-router.get('/downLoadInvoice/:proId',userControllers.userInvoice)
+router.get('/downLoadInvoice/:proId',verifyLoginUser, userControllers.userInvoice)
 
 //Search
 

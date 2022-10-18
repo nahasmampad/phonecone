@@ -5,6 +5,14 @@ var productDetails = require("../helpers/adminhelpers");
 const multer = require("multer");
 const { Db } = require("mongodb");
 
+function verifyLogin(req,res,next){
+  if(req.session.adminLogin){  
+    next()
+  }else{
+    res.redirect('/admin/adminLogin')
+  }
+}
+
 // Multer module defining
 const fileStorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -21,11 +29,11 @@ const upload = multer({ storage: fileStorageEngine });
 router.get("/", controllers.getHomePage);
 
 //Product Management
-router.get("/products", controllers.getProducts);
-router.get("/addProduct", controllers.getAddProduct);
+router.get("/products",verifyLogin, controllers.getProducts);
+router.get("/addProduct",verifyLogin, controllers.getAddProduct);
 
 //Add Product
-router.post("/addProduct", upload.array("image", 4), (req, res) => {
+router.post("/addProduct",verifyLogin, upload.array("image", 4), (req, res) => {
   try {
     const Images = [];
     for (i = 0; i < req.files.length; i++) {
@@ -43,54 +51,54 @@ router.post("/addProduct", upload.array("image", 4), (req, res) => {
 });
 
 //Delete Product
-router.get("/deleteProduct", controllers.getDeleteProduct);
+router.get("/deleteProduct",verifyLogin, controllers.getDeleteProduct);
 
 //Edit Prdouct Page
-router.get("/editProduct", controllers.getEditProduct);
-router.post("/editProduct/:id", controllers.postEditProduct);
-router.post('/addProductAditionalDetails/:id', controllers.addProductAditionalDetails)
+router.get("/editProduct",verifyLogin, controllers.getEditProduct);
+router.post("/editProduct/:id",verifyLogin, controllers.postEditProduct);
+router.post('/addProductAditionalDetails/:id',verifyLogin, controllers.addProductAditionalDetails)
 
-router.get("/productView:id", controllers.getProductView);
+router.get("/productView:id",verifyLogin, controllers.getProductView);
 
 router.get("/adminLogin", controllers.getAdminLogin);
 
 router.post("/adminLogin", controllers.postAdminLogin);
 
-router.get("/adminSignout", controllers.getAdminSignout);
+router.get("/adminSignout",verifyLogin, controllers.getAdminSignout);
 
-router.get("/orders", controllers.getOrders);
+router.get("/orders",verifyLogin, controllers.getOrders);
 
-router.get("/viewOrderDetails:ordId", controllers.getViewOrdersDetails);
+router.get("/viewOrderDetails:ordId",verifyLogin, controllers.getViewOrdersDetails);
 
-router.post("/stauseShipped", controllers.postStatusShipped);
+router.post("/stauseShipped",verifyLogin, controllers.postStatusShipped);
 
-router.post("/stausePlaced", controllers.postStatusPlaced);
+router.post("/stausePlaced",verifyLogin, controllers.postStatusPlaced);
 
 router.post("/stauseDeliverd", controllers.postStatusDeliverd);
 
-router.get("/offers", controllers.getOffers);
+router.get("/offers",verifyLogin, controllers.getOffers);
 
-router.post("/addCoupen", controllers.postAddCoupen);
+router.post("/addCoupen",verifyLogin, controllers.postAddCoupen);
 
-router.post("/deleteCoupen", controllers.postDeleteCoupen);
+router.post("/deleteCoupen",verifyLogin, controllers.postDeleteCoupen);
 
-router.get("/userDetails", controllers.getUserDeatils);
+router.get("/userDetails",verifyLogin, controllers.getUserDeatils);
 
-router.post("/changeUserStatus", controllers.postChangeUserStatus);
+router.post("/changeUserStatus",verifyLogin, controllers.postChangeUserStatus);
 
-router.post("/addCategory", controllers.postAddCategory);
+router.post("/addCategory",verifyLogin, controllers.postAddCategory);
 
-router.get("/getCategoryItems:item", controllers.getCategoryItems);
+router.get("/getCategoryItems:item",verifyLogin, controllers.getCategoryItems);
 
-router.get("/searchProduct", controllers.getSearch);
+router.get("/searchProduct",verifyLogin, controllers.getSearch);
 
 //Download Invoice
-router.get('/downLoadInvoice/:id',controllers.getDownloadInvoice)
+router.get('/downLoadInvoice/:id',verifyLogin,controllers.getDownloadInvoice)
 
 //totalRevenueChart
-router.post('/totalRevenueChart', controllers.totalRevenueChart)
+router.post('/totalRevenueChart',verifyLogin, controllers.totalRevenueChart)
 
 //Download Sales Report
-router.get('/downLoadSalesReport',controllers.downLoadSalesReport)
+router.get('/downLoadSalesReport',verifyLogin,controllers.downLoadSalesReport)
 
 module.exports = router;
