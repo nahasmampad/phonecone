@@ -139,7 +139,7 @@
                         <div class="card">
                             <h5 class="card-header">Table Basic</h5>
                             <div class="table-responsive text-nowrap">
-                                <table class="table" id="table_id">
+                                <table class="table" id="tablemanager">
                                     <thead>
                                         <tr>
                                             <th>Name</th>
@@ -265,7 +265,7 @@
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
+    <script src="/javascripts/tableManager.js"></script>
     <script>
 
         $(document).ready( function () {
@@ -320,6 +320,23 @@
             })
 
         }
+
+
+         $('#tablemanager').tablemanager({
+			firstSort: [[3,0],[2,0],[1,'asc']],
+			disable: ["last"],
+			appendFilterby: true,
+			dateFormat: [[4,"dd-mm-yyyy"]],
+			debug: true,
+			vocabulary: {
+				voc_filter_by: 'Filtra per',
+				voc_type_here_filter: 'Scrivi qui per filtrare...',
+				voc_show_rows: 'Mostra righe'
+			},
+			pagination: true,
+			showrows: [10,20,50,100],
+			disableFilterBy: [1]
+		});
     </script>
 
 
